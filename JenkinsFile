@@ -14,10 +14,14 @@ pipeline {
             }                
             }
         }
-        stage('Push Image') {
+           stage('Push Image') {
             steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {}
-                            }
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker_nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                    sh 'docker login [Ip de su maquina]:8083 -u $USERNAME -p $PASSWORD'
+                    sh 'docker tag microservicio:latest 192.168.1.133:8083/repository/docker-private/microservicio:latest'
+                    sh 'docker push [ip de su maquina]:8083/repository/docker-private/microservicio:latest
+                }
+            }
         }
+
     }
-}
