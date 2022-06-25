@@ -31,7 +31,7 @@
                 }
             }
         }
-    }
+    
   stage('Stress') {
             steps {
                 sleep 5
@@ -44,6 +44,6 @@
 
 
 
-
+}
 
 
