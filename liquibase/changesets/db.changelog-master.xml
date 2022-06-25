@@ -25,6 +25,4 @@
         </createTable>
     </changeSet>
 
-
-    <include file="changesets/db.changelog-0.0.0.1.xml"/> 
-</databaseChangeLog> 
+ </databaseChangeLog> 
