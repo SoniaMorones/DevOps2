@@ -4,7 +4,7 @@
         maven 'M3_8_6'
     }
     
-        stage('Push Image') {
+       /* stage('Push Image') {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker_nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
                     sh 'docker login 192.168.1.67:8083 -u $USERNAME -p $PASSWORD'
@@ -12,7 +12,7 @@
                     sh 'docker push 192.168.1.67:8083/repository/docker-private/microservicio:latest'
                 }
             }
-        }
+        }*/
         stage('Database') {
             steps {
                 dir("liquibase/"){
